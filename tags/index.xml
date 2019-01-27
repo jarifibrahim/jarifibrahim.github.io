@@ -20,9 +20,18 @@
     </item>
     
     <item>
+      <title>Go</title>
+      <link>https://jarifibrahim.github.io/tags/go/</link>
+      <pubDate>Sun, 27 Jan 2019 18:05:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Golang</title>
       <link>https://jarifibrahim.github.io/tags/golang/</link>
-      <pubDate>Mon, 19 Mar 2018 12:03:06 +0530</pubDate>
+      <pubDate>Sun, 27 Jan 2019 18:05:06 +0530</pubDate>
       
       <guid>https://jarifibrahim.github.io/tags/golang/</guid>
       <description></description>
@@ -34,6 +43,15 @@
       <pubDate>Mon, 19 Mar 2018 12:03:06 +0530</pubDate>
       
       <guid>https://jarifibrahim.github.io/tags/golden-files/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gorm</title>
+      <link>https://jarifibrahim.github.io/tags/gorm/</link>
+      <pubDate>Sun, 27 Jan 2019 18:05:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/tags/gorm/</guid>
       <description></description>
     </item>
     
@@ -58,7 +76,7 @@
     <item>
       <title>Software Testing</title>
       <link>https://jarifibrahim.github.io/tags/software-testing/</link>
-      <pubDate>Mon, 19 Mar 2018 12:03:06 +0530</pubDate>
+      <pubDate>Sun, 27 Jan 2019 18:05:06 +0530</pubDate>
       
       <guid>https://jarifibrahim.github.io/tags/software-testing/</guid>
       <description></description>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='If you’ve ever written code in Golang that interfaces with the database, chances are that you already know GORM. With GORM, creating, updating, deleting records is super simple.
+ But GORM offers a lot more than just basic database operations. One of my favourites is the ability to attach database Hooks. Database hooks can be used to do all kinds of cool stuff like automatically deleting records created by test fixtures, logging information about when a record was inserted/deleted, updating records in one table when another is changed and so on.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Using GORM Hooks to Clean up Test Fixtures in Golang • Ibrahim Jarif'>
+<meta property='og:description' content='If you’ve ever written code in Golang that interfaces with the database, chances are that you already know GORM. With GORM, creating, updating, deleting records is super simple.
+ But GORM offers a lot more than just basic database operations. One of my favourites is the ability to attach database Hooks. Database hooks can be used to do all kinds of cool stuff like automatically deleting records created by test fixtures, logging information about when a record was inserted/deleted, updating records in one table when another is changed and so on.'>
+<meta property='og:url' content='https://jarifibrahim.github.io/blog/test-cleanup-with-gorm-hooks/'>
+<meta property='og:site_name' content='Ibrahim Jarif'>
+<meta property='og:type' content='article'><meta property='article:section' content='blog'><meta property='article:tag' content='Golang'><meta property='article:tag' content='Go'><meta property='article:tag' content='Gorm'><meta property='article:tag' content='Software Testing'><meta property='article:published_time' content='2019-01-27T18:05:06&#43;05:30'/><meta property='article:modified_time' content='2019-01-27T18:05:06&#43;05:30'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.53" />
+
+  <title>Using GORM Hooks to Clean up Test Fixtures in Golang • Ibrahim Jarif</title>
+  <link rel='canonical' href='https://jarifibrahim.github.io/blog/test-cleanup-with-gorm-hooks/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.4a10984a.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-blog'>
+
+  <div class='site'><a class='screen-reader-text' href='#content'>Skip to Content</a><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/blog/'>Blog</a>
+      </li><li class='item'>
+        <a href='/about/'>About</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Ibrahim Jarif</p><p class='desc site-desc'>Human | Engineer | Golang | Open Source</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Using GORM Hooks to Clean up Test Fixtures in Golang</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2019-01-27T18:05:06&#43;05:30'>Jan 27, 2019</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+3 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<p><img src="/gopher.jpeg" alt="" /></p>
+
+<p>If you’ve ever written code in Golang that interfaces with the database, chances are that you already know <a href="https://github.com/jinzhu/gorm" target="_blank">GORM</a>. With GORM, creating, updating, deleting records is super simple.</p>
+
+<script src="https://gist.github.com/jarifibrahim/72c7b24f8ba08baa1a2266c302a8c625.js"></script>
+
+<p>But GORM offers a lot more than just basic database operations. One of my favourites is the ability to attach database <a href="http://gorm.io/docs/hooks.html" target="_blank">Hooks</a>. Database hooks can be used to do all kinds of cool stuff like automatically deleting records created by test fixtures, logging information about when a record was inserted/deleted, updating records in one table when another is changed and so on.</p>
+
+<h2 id="deleting-records-created-by-test-fixtures-with-gorm">Deleting Records Created by Test Fixtures with GORM</h2>
+
+<p>A common practice is to create test prerequisites via test fixtures. Let’s say you were testing an application which requires some data to be present in the database. The usual way of testing this would be to insert some test data in the database and then test the application. It is extremely important that the database is in a clean state between test runs and there are no leftovers in the database. You would never want the left over from the previous test affect your current test.</p>
+
+<p>But there’s a problem — How do you remove all the records created by the test fixtures? You could drop the entire database but let’s assume you don’t want to do that. So how do you keep your test environment in a clean and consistent state?</p>
+
+<p>One easy (not really!) and not-so-cool way of doing that would be to manually delete every record that you inserted in the database.</p>
+
+<script src="https://gist.github.com/jarifibrahim/3650b2dc27a292008efd43c3b346c63a.js"></script>
+
+<h2 id="so-how-you-do-delete-records-elegantly-gorm-hooks-to-the-rescue">So how you do delete records elegantly? GORM Hooks to the Rescue!</h2>
+
+<p>The easiest way is to set up a <code>onCreate</code> hook on the database and every time you create a record you store its information in a temporary data structure. Once your test completes, you can delete the all the records listed in the temporary data structure. The following code shows a simple function that can be used to remove all records created in the database after the hook was set up.</p>
+
+<script src="https://gist.github.com/jarifibrahim/039090459ff04e14233dccd52ee2d9cf.js"></script>
+
+<p>The <code>entries</code> array in the above snippet stores the list of records created after the hook was set up and these records would automatically be deleted when the returned function is called.</p>
+
+<p>The following code snippet shows a more thorough example</p>
+
+<script src="https://gist.github.com/jarifibrahim/6f800a33079722653745ca6fd2f96772.js"></script>
+
+<p>The test in the above code snippet creates 3 records in the database and the GORM hook stores those records in the <code>entities</code> array. Once the test is done, all the records are automatically deleted from the database. The following code snippet shows the output of the test in the code snippet above</p>
+
+<pre><code>➜ (foo) go test -v
+=== RUN   TestCleanup
+Inserted entities of products with id=40
+Inserted entities of products with id=41
+Inserted entities of products with id=42
+Deleting entities from 'products' table with key 42
+Deleting entities from 'products' table with key 41
+Deleting entities from 'products' table with key 40
+2019/01/27 15:12:12 [info] removing callback `cleanupHook` from /home/ijarif/Projects/go/src/github.com/jarifibrahim/foo/cleanup_test.go:81
+--- PASS: TestCleanup (0.02s)
+PASS
+ok   github.com/jarifibrahim/foo 0.022s
+</code></pre>
+
+<p>This is how you can ensure your test environment remains in a clean and consistent state across test runs. If you’d like to read more about GORM hooks, head over to <a href="http://gorm.io/docs/hooks.html" target="_blank">http://gorm.io/docs/hooks.html</a></p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/golang/'>Golang</a>, <a class='tag' href='/tags/go/'>Go</a>, <a class='tag' href='/tags/gorm/'>Gorm</a>, <a class='tag' href='/tags/software-testing/'>Software Testing</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/blog/protractor-and-page-synchronization/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>The Curious Case of Protractor and Page Synchronization</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/jarifibrahim' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://facebook.com/jarifibrahim2' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Facebook account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/_iamibrahim' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:jarifibrahim@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/jarifibrahim' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p></p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.fae8ed32.js'></script>
+
+</body>
+
+</html>
+
