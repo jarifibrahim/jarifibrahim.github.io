@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ibrahim Jarif</title>
+    <link>https://jarifibrahim.github.io/blog/</link>
+    <description>Recent content on Ibrahim Jarif</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 19 Mar 2018 12:03:06 +0530</lastBuildDate>
+    
+	<atom:link href="https://jarifibrahim.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golden Files — Why you should use them</title>
+      <link>https://jarifibrahim.github.io/blog/golden-files-why-you-should-use-them/</link>
+      <pubDate>Mon, 19 Mar 2018 12:03:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/blog/golden-files-why-you-should-use-them/</guid>
+      <description>.caption { font-size: 0.9em; margin: 0px 50px; text-align: center; margin-bottom: 20px; }   A Golden file from the fabric8 project — https://github.com/fabric8-services/fabric8-wit/blob/master/controller/test-files/label/update/ok.label.golden.json  Testing responses from an API is often straightforward and monotonous. You set a few headers, make a request and assert the received response. The problem starts when your API sends a huge amount of data in the response. You validate each attribute of the response against the expected value.</description>
+    </item>
+    
+  </channel>
+</rss>
