@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UI Testing on Ibrahim Jarif</title>
+    <link>https://jarifibrahim.github.io/tags/ui-testing/</link>
+    <description>Recent content in UI Testing on Ibrahim Jarif</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 07 Aug 2018 18:05:06 +0530</lastBuildDate>
+    
+	<atom:link href="https://jarifibrahim.github.io/tags/ui-testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Curious Case of Protractor and Page Synchronization</title>
+      <link>https://jarifibrahim.github.io/blog/protractor-and-page-synchronization/</link>
+      <pubDate>Tue, 07 Aug 2018 18:05:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/blog/protractor-and-page-synchronization/</guid>
+      <description>.caption { font-size: 0.9em; margin: 0px 50px; text-align: center; margin-bottom: 20px; }  Protractor is an amazing tool but use it incorrectly and it will make your life miserable. This blog post is about how a simple setTimeout() made my life miserable.  “A book with a magnifying glass on top of it, next to a pen, and globes on a desk in Cianorte” by João Silas on Unsplash  I recently started working on the fabric8-planner project which is part of the fabric8-ui project.</description>
+    </item>
+    
+  </channel>
+</rss>

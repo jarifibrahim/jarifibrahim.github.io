@@ -5,10 +5,19 @@
     <link>https://jarifibrahim.github.io/tags/</link>
     <description>Recent content in Tags on Ibrahim Jarif</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 19 Mar 2018 12:03:06 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 07 Aug 2018 18:05:06 +0530</lastBuildDate>
     
 	<atom:link href="https://jarifibrahim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Async Await</title>
+      <link>https://jarifibrahim.github.io/tags/async-await/</link>
+      <pubDate>Tue, 07 Aug 2018 18:05:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/tags/async-await/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Golang</title>
@@ -29,11 +38,38 @@
     </item>
     
     <item>
+      <title>Javascript</title>
+      <link>https://jarifibrahim.github.io/tags/javascript/</link>
+      <pubDate>Tue, 07 Aug 2018 18:05:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Protractor Framework</title>
+      <link>https://jarifibrahim.github.io/tags/protractor-framework/</link>
+      <pubDate>Tue, 07 Aug 2018 18:05:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/tags/protractor-framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Software Testing</title>
       <link>https://jarifibrahim.github.io/tags/software-testing/</link>
       <pubDate>Mon, 19 Mar 2018 12:03:06 +0530</pubDate>
       
       <guid>https://jarifibrahim.github.io/tags/software-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UI Testing</title>
+      <link>https://jarifibrahim.github.io/tags/ui-testing/</link>
+      <pubDate>Tue, 07 Aug 2018 18:05:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/tags/ui-testing/</guid>
       <description></description>
     </item>
     
