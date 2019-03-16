@@ -128,7 +128,7 @@ if (!doNotTrack) {
 
 <script src="https://gist.github.com/jarifibrahim/3650b2dc27a292008efd43c3b346c63a.js"></script>
 
-<h2 id="so-how-you-do-delete-records-elegantly-gorm-hooks-to-the-rescue">So how you do delete records elegantly? GORM Hooks to the Rescue!</h2>
+<h2 id="so-how-do-you-delete-records-elegantly-gorm-hooks-to-the-rescue">So how do you delete records elegantly? GORM Hooks to the Rescue!</h2>
 
 <p>The easiest way is to set up a <code>onCreate</code> hook on the database and every time you create a record you store its information in a temporary data structure. Once your test completes, you can delete the all the records listed in the temporary data structure. The following code shows a simple function that can be used to remove all records created in the database after the hook was set up.</p>
 
