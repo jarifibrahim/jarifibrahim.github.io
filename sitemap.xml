@@ -17,37 +17,6 @@
   </url>
   
   <url>
-    <loc>https://jarifibrahim.github.io/blog/test-cleanup-with-gorm-hooks/</loc>
-    <lastmod>2019-01-27T18:05:06+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jarifibrahim.github.io/blog/protractor-and-page-synchronization/</loc>
-    <lastmod>2018-08-07T18:05:06+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jarifibrahim.github.io/blog/golden-files-why-you-should-use-them/</loc>
-    <lastmod>2018-03-19T12:03:06+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jarifibrahim.github.io/tags/async-await/</loc>
-    <lastmod>2018-08-07T18:05:06+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jarifibrahim.github.io/authors/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jarifibrahim.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://jarifibrahim.github.io/tags/go/</loc>
     <lastmod>2019-01-27T18:05:06+05:30</lastmod>
     <priority>0</priority>
@@ -60,14 +29,31 @@
   </url>
   
   <url>
-    <loc>https://jarifibrahim.github.io/tags/golden-files/</loc>
-    <lastmod>2018-03-19T12:03:06+05:30</lastmod>
+    <loc>https://jarifibrahim.github.io/tags/gorm/</loc>
+    <lastmod>2019-01-27T18:05:06+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://jarifibrahim.github.io/tags/gorm/</loc>
+    <loc>https://jarifibrahim.github.io/tags/software-testing/</loc>
     <lastmod>2019-01-27T18:05:06+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jarifibrahim.github.io/tags/</loc>
+    <lastmod>2019-01-27T18:05:06+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jarifibrahim.github.io/blog/test-cleanup-with-gorm-hooks/</loc>
+    <lastmod>2019-01-27T18:05:06+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jarifibrahim.github.io/tags/async-await/</loc>
+    <lastmod>2018-08-07T18:05:06+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -84,25 +70,39 @@
   </url>
   
   <url>
-    <loc>https://jarifibrahim.github.io/series/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jarifibrahim.github.io/tags/software-testing/</loc>
-    <lastmod>2019-01-27T18:05:06+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jarifibrahim.github.io/tags/</loc>
+    <loc>https://jarifibrahim.github.io/blog/protractor-and-page-synchronization/</loc>
     <lastmod>2018-08-07T18:05:06+05:30</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jarifibrahim.github.io/tags/ui-testing/</loc>
     <lastmod>2018-08-07T18:05:06+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jarifibrahim.github.io/tags/golden-files/</loc>
+    <lastmod>2018-03-19T12:03:06+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jarifibrahim.github.io/blog/golden-files-why-you-should-use-them/</loc>
+    <lastmod>2018-03-19T12:03:06+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jarifibrahim.github.io/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jarifibrahim.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jarifibrahim.github.io/series/</loc>
     <priority>0</priority>
   </url>
   

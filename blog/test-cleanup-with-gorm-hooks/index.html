@@ -13,14 +13,14 @@
 <meta property='og:site_name' content='Ibrahim Jarif'>
 <meta property='og:type' content='article'><meta property='article:section' content='blog'><meta property='article:tag' content='Golang'><meta property='article:tag' content='Go'><meta property='article:tag' content='Gorm'><meta property='article:tag' content='Software Testing'><meta property='article:published_time' content='2019-01-27T18:05:06&#43;05:30'/><meta property='article:modified_time' content='2019-01-27T18:05:06&#43;05:30'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.53" />
+<meta name="generator" content="Hugo 0.55.3" />
 
   <title>Using GORM Hooks to Clean up Test Fixtures in Golang • Ibrahim Jarif</title>
   <link rel='canonical' href='https://jarifibrahim.github.io/blog/test-cleanup-with-gorm-hooks/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.4a10984a.css'><style>
+<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
@@ -128,7 +128,7 @@ if (!doNotTrack) {
 
 <script src="https://gist.github.com/jarifibrahim/3650b2dc27a292008efd43c3b346c63a.js"></script>
 
-<h2 id="so-how-do-you-delete-records-elegantly-gorm-hooks-to-the-rescue">So how do you delete records elegantly? GORM Hooks to the Rescue!</h2>
+<h2 id="so-how-you-do-delete-records-elegantly-gorm-hooks-to-the-rescue">So how you do delete records elegantly? GORM Hooks to the Rescue!</h2>
 
 <p>The easiest way is to set up a <code>onCreate</code> hook on the database and every time you create a record you store its information in a temporary data structure. Once your test completes, you can delete the all the records listed in the temporary data structure. The following code shows a simple function that can be used to remove all records created in the database after the hook was set up.</p>
 
@@ -168,7 +168,7 @@ ok   github.com/jarifibrahim/foo 0.022s
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/golang/'>Golang</a>, <a class='tag' href='/tags/go/'>Go</a>, <a class='tag' href='/tags/gorm/'>Gorm</a>, <a class='tag' href='/tags/software-testing/'>Software Testing</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/golang/'>Golang</a>, <a class='tag' href='/tags/go/'>Go</a>, <a class='tag' href='/tags/gorm/'>Gorm</a></div>
 
   </div>
 </footer>
@@ -222,15 +222,6 @@ ok   github.com/jarifibrahim/foo 0.022s
 </svg>
 </a>
       </li><li>
-        <a href='mailto:jarifibrahim@gmail.com' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-  <polyline points="22,6 12,13 2,6"/>
-  
-</svg>
-</a>
-      </li><li>
         <a href='https://linkedin.com/in/jarifibrahim' target='_blank' rel='noopener'>
           <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
@@ -252,7 +243,7 @@ ok   github.com/jarifibrahim/foo 0.022s
     </div>
   </div><script>window.__public_path__='\/assets\/js\/'</script>
 
-<script src='/assets/js/main.fae8ed32.js'></script>
+<script src='/assets/js/main.00df04b7.js'></script>
 
 </body>
 
