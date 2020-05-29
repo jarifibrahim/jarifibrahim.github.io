@@ -5,10 +5,20 @@
     <link>https://jarifibrahim.github.io/</link>
     <description>Recent content in Home on Ibrahim Jarif</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 27 Jan 2019 18:05:06 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2020 18:05:06 +0530</lastBuildDate>
     
 	<atom:link href="https://jarifibrahim.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to Setup SSH using Tailscale or ngrok</title>
+      <link>https://jarifibrahim.github.io/blog/ssh-using-tailscale-or-ngrok/</link>
+      <pubDate>Fri, 29 May 2020 18:05:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/blog/ssh-using-tailscale-or-ngrok/</guid>
+      <description>.caption { font-size: 0.9em; margin: 0px 50px; text-align: center; margin-bottom: 20px; }  SSH is a secure protocol used as the primary means of connecting to Linux servers remotely. The remote server can be your computer. For instance, I use SSH to access my office computer.
+Setting up SSH is easy, and there are multiple articles on how to set up SSH. This blog post is about how to SSH into a machine that does not have a static public IP; that is, the machine is inside a private network, for example, my laptop at home or my computer inside a WeWork building.</description>
+    </item>
     
     <item>
       <title>Using GORM Hooks to Clean up Test Fixtures in Golang</title>
@@ -36,6 +46,15 @@
       
       <guid>https://jarifibrahim.github.io/blog/golden-files-why-you-should-use-them/</guid>
       <description>.caption { font-size: 0.9em; margin: 0px 50px; text-align: center; margin-bottom: 20px; }   A Golden file from the fabric8 project — https://github.com/fabric8-services/fabric8-wit/blob/master/controller/test-files/label/update/ok.label.golden.json  Testing responses from an API is often straightforward and monotonous. You set a few headers, make a request and assert the received response. The problem starts when your API sends a huge amount of data in the response. You validate each attribute of the response against the expected value.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jarifibrahim.github.io/blog/golang-byte-struct/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/blog/golang-byte-struct/</guid>
+      <description>Serializing Golang structs the fast way Before a struct can be written to a file, it has to be converted into a byte slice. Usually a struct is converted into a byte slice by eiter</description>
     </item>
     
   </channel>

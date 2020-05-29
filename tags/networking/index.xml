@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>networking on Ibrahim Jarif</title>
+    <link>https://jarifibrahim.github.io/tags/networking/</link>
+    <description>Recent content in networking on Ibrahim Jarif</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 29 May 2020 18:05:06 +0530</lastBuildDate>
+    
+	<atom:link href="https://jarifibrahim.github.io/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Setup SSH using Tailscale or ngrok</title>
+      <link>https://jarifibrahim.github.io/blog/ssh-using-tailscale-or-ngrok/</link>
+      <pubDate>Fri, 29 May 2020 18:05:06 +0530</pubDate>
+      
+      <guid>https://jarifibrahim.github.io/blog/ssh-using-tailscale-or-ngrok/</guid>
+      <description>.caption { font-size: 0.9em; margin: 0px 50px; text-align: center; margin-bottom: 20px; }  SSH is a secure protocol used as the primary means of connecting to Linux servers remotely. The remote server can be your computer. For instance, I use SSH to access my office computer.
+Setting up SSH is easy, and there are multiple articles on how to set up SSH. This blog post is about how to SSH into a machine that does not have a static public IP; that is, the machine is inside a private network, for example, my laptop at home or my computer inside a WeWork building.</description>
+    </item>
+    
+  </channel>
+</rss>
