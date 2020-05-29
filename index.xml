@@ -48,14 +48,5 @@ Setting up SSH is easy, and there are multiple articles on how to set up SSH. Th
       <description>.caption { font-size: 0.9em; margin: 0px 50px; text-align: center; margin-bottom: 20px; }   A Golden file from the fabric8 project — https://github.com/fabric8-services/fabric8-wit/blob/master/controller/test-files/label/update/ok.label.golden.json  Testing responses from an API is often straightforward and monotonous. You set a few headers, make a request and assert the received response. The problem starts when your API sends a huge amount of data in the response. You validate each attribute of the response against the expected value.</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://jarifibrahim.github.io/blog/golang-byte-struct/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jarifibrahim.github.io/blog/golang-byte-struct/</guid>
-      <description>Serializing Golang structs the fast way Before a struct can be written to a file, it has to be converted into a byte slice. Usually a struct is converted into a byte slice by eiter</description>
-    </item>
-    
   </channel>
 </rss>
